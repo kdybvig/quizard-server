@@ -6,6 +6,8 @@ app.use(bodyParser.json());
 
 //routers
 const usersRouter = require('./routes/usersRouter')
+app.use('/', express.static('public'))
+
 app.use('/users', usersRouter);
 const quizzesRouter = require('./routes/quizzesRouter')
 app.use('/quizzes', quizzesRouter);
