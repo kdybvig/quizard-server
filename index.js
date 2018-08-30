@@ -4,6 +4,9 @@ const PORT = process.env.PORT || 1986;
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
+const cors = require('cors');
+app.use(cors());
+
 //routers
 const usersRouter = require('./routes/usersRouter')
 app.use('/', express.static('public'))
