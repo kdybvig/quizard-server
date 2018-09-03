@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 usersRouter.use(bodyParser.json());
 
 usersRouter.get('/', usersController.showUsers);
-usersRouter.post('/', usersController.addUser);
+usersRouter.post('/register', usersController.addUser);
+usersRouter.post('/login', usersController.findUser);
 usersRouter.put('/', usersController.changePassword);
 
 module.exports = usersRouter;
