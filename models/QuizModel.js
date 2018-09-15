@@ -8,6 +8,10 @@ const quizSchema = new mongoose.Schema({
     categories: {
         required: true,
         type: Array
+    },
+    description: {
+        required: true,
+        type: String
     }
 });
 
