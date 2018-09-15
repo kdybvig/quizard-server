@@ -1,5 +1,5 @@
 const User = require('../models/UserModel');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 module.exports.findUser = (req, res) => {
     const thisUser = User(req.body);
