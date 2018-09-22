@@ -8,8 +8,7 @@ module.exports.addQuiz = (req, res, next) => {
 };
 
 module.exports.updateQuiz = (req, res, next) => {
-    const newQuiz = Quiz(req.body);
-    Quiz.findByIdAndUpdate(req.params.userid, newQuiz, {new:true}, (err, quiz) => {
+    Quiz.findByIdAndUpdate(req.params.userid, req.body, {new:true}, (err, quiz) => {
             if (err) return res.status(500).send(err);
             return res.send(quiz);
         })
