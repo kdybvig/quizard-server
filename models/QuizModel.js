@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const quizSchema = new mongoose.Schema({
-    name: {
+    title: {
         required: true,
         type: String
     },
@@ -10,6 +10,10 @@ const quizSchema = new mongoose.Schema({
         type: Array
     },
     description: {
+        required: true,
+        type: String
+    },
+    owner: {
         required: true,
         type: String
     }

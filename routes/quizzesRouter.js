@@ -7,5 +7,6 @@ quizzesRouter.use(bodyParser.json());
 
 quizzesRouter.get('/', showQuizzes);
 quizzesRouter.post('/', addQuiz);
+quizzesRouter.put('/:userid', updateQuiz);
 
 module.exports = quizzesRouter;
