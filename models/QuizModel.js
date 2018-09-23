@@ -25,7 +25,7 @@ const quizSchema = new mongoose.Schema({
         required: true,
         type: Boolean
     },
-    inProgress: {
+    isInProgress: {
         required: false,
         type: Boolean
     }
