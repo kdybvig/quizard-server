@@ -19,7 +19,7 @@ const quizSchema = new mongoose.Schema({
     },
     info: {
         required: false,
-        type: String
+        type: Object
     },
     isComplete: {
         required: true,
