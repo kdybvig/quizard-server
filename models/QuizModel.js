@@ -16,6 +16,18 @@ const quizSchema = new mongoose.Schema({
     owner: {
         required: true,
         type: String
+    },
+    info: {
+        required: false,
+        type: String
+    },
+    isComplete: {
+        required: true,
+        type: Boolean
+    },
+    inProgress: {
+        required: false,
+        type: Boolean
     }
 });
 
