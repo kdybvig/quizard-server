@@ -15,7 +15,7 @@ module.exports.updateQuiz = (req, res, next) => {
 };
 
 module.exports.showQuizzes = (req, res, next) => {
-    Quiz.find({}, (err, quizzes) => {
+    Quiz.find({isComplete: true}, (err, quizzes) => {
         if (err) res.send(err);
         res.status(200).send(quizzes);
     })
