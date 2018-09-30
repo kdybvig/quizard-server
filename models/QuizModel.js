@@ -17,6 +17,10 @@ const quizSchema = new mongoose.Schema({
         required: true,
         type: String
     },
+    createdBy: {
+        required: true,
+        type: String
+    },
     info: {
         required: false,
         type: Object
