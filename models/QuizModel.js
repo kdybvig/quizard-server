@@ -28,6 +28,10 @@ const quizSchema = new mongoose.Schema({
     isInProgress: {
         required: false,
         type: Boolean
+    },
+    teams: {
+        required: false,
+        type: Array
     }
 });
 
