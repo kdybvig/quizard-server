@@ -22,7 +22,8 @@ module.exports.showQuizzes = (req, res, next) => {
 }
 
 module.exports.showQuizzesByUser = (req, res, next) => {
-    const username = req.params;
+    const username = req.params.username;
+    console.log(username)
     Quiz.find({owner: username}, (err, quizzes) => {
         if (err) res.send(err);
         res.status(200).send(quizzes);
