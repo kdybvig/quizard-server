@@ -25,6 +25,18 @@ module.exports.showQuizzesByUser = (req, res, next) => {
     const username = req.params.username;
     Quiz.find({owner: username}, (err, quizzes) => {
         if (err) res.send(err);
-        res.status(200).send(quizzes);
+
+        const underConstruction = quizzes.filter(quiz => {
+            return !quiz.isComplete;
+        });
+        const readyToPlay = quizzes.filter(quiz => {
+            return quiz.isComplete && !quiz.isInProgress;
+        });
+        const inProgress = quizzes.filter(quiz => {
+            return quiz.isInProgress;
+        });
+        const userQuizzes = {underConstruction, readyToPlay, inProgress}
+
+        res.status(200).json(userQuizzes);
     })
 }
