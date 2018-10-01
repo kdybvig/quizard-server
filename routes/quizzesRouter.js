@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 quizzesRouter.use(bodyParser.json());
 
 quizzesRouter.get('/', showQuizzes);
+quizzesRouter.get('/user/:username')
 quizzesRouter.post('/', addQuiz);
-quizzesRouter.put('/:userid', updateQuiz);
+quizzesRouter.put('/:quizid', updateQuiz);
 
 module.exports = quizzesRouter;
