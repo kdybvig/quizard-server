@@ -40,3 +40,11 @@ module.exports.showQuizzesByUser = (req, res, next) => {
         res.status(200).json(userQuizzes);
     })
 }
+
+module.exports.showPublicQuizzesByUser = (req, res, next) => {
+    const username = req.params.username;
+    Quiz.find({owner: username, isComplete: true, "info.visibility":"Public", isInProgress: {$ne: true}}, (err, quizzes) => {
+        if (err) res.send(err);
+        res.status(200).json(quizzes);
+    })
+}
