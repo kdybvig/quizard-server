@@ -15,7 +15,19 @@ module.exports.updateQuiz = (req, res, next) => {
 };
 
 module.exports.showQuizzes = (req, res, next) => {
-    Quiz.find({isComplete: true, "info.visibility":"Public", isInProgress: {$ne: true}}, (err, quizzes) => {
+    const {search, subject, grade} = req.query;
+    const searchRegExp = new RegExp (search, 'i');
+    const query = {isComplete: true, "info.visibility":"Public", isInProgress: {$ne: true}}
+    if(search) {
+        query['$or'] = [{name: searchRegExp}, {description: searchRegExp}]
+    }
+    if(subject) {
+        query["info.subject"] = subject
+    }
+    if(grade) {
+        query["info.gradeLevel"] = grade
+    }
+    Quiz.find(query, (err, quizzes) => {
         if (err) res.send(err);
         res.status(200).send(quizzes);
     })
