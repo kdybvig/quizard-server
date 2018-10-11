@@ -60,3 +60,15 @@ module.exports.showPublicQuizzesByUser = (req, res, next) => {
         res.status(200).json(quizzes);
     })
 }
+
+module.exports.deleteQuiz = (req, res, next) => {
+    Quiz.findByIdAndRemove(req.params.quizid, (err, quiz) => {
+        console.log(quiz)
+        if (err) return res.status(500).send(err);
+        const response = {
+            message: "Quiz deleted successfully",
+            id: quiz._id
+        };
+        return res.status(200).send(response);
+    });
+}
